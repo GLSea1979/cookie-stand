@@ -19,8 +19,8 @@ function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
   this.cookieRandomizer = function() {
     this.randomCustHour();
       for (var i = 0; i < hoursOpen.length; i++){
-        console.log(this.hourlyCustomers + ' customer hour');
-        console.log(this.avgCookiesCust + 'avCC');
+        // console.log(this.hourlyCustomers + ' customer hour');
+        // console.log(this.avgCookiesCust + 'avCC');
         this.cookiesSoldPerHour.push(Math.ceil(this.hourlyCustomers[i]*this.avgCookiesCust));
         this.totalCookiesPerDay += this.cookiesSoldPerHour[i];
         // console.log(this.cookiesSoldPerHour + 'cookies per hour');
@@ -30,12 +30,50 @@ function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
   this.render = function() {
     this.cookieRandomizer();
     var alkiUL = document.getElementById('storeTable');
-    for (i = 0; i < hoursOpen.length; i++) {
+    for (var i = 0; i < hoursOpen.length; i++) {
       var liEl = document.createElement('li');
       liEl.textContent = hoursOpen[i] + ': ' + this.cookiesSoldPerHour[i] + ' cookies';
       alkiUL.appendChild(liEl);
     }
   };
 }
+var alki = new Store('Alki', 2, 16, 4.6);
+var seaTac = new Store('SeaTac Airport', 3, 24, 1.2);
+var capHill = new Store('Capitol Hill', 20, 38, 2.3);
+var seaCenter = new Store('Seattle Center', 11, 38, 3.7);
+var pike = new Store('1st and Pike', 23, 65, 6.3);
+seaTac.render();
+alki.render();
+capHill.render();
+seaCenter.render();
+pike.render();
 
-var test = new Store('Alki', 2, 16, 4.6).render();
+
+function tablebuilder() {
+  var catTable = document.getElementById('catjs')
+  console.log('catTable is ' + catTable);
+
+  var trEl= document.createElement('tr');
+  var thEl= document.createElement('th');
+  thEl.textContent = 'Name';
+  trEl.appendChild(thEl);
+
+  var thEl= document.createElement('th');
+  thEl.textContent = 'Color';
+  trEl.appendChild(thEl);
+
+  var thEl= document.createElement('th');
+  thEl.textContent = 'Color';
+  trEl.appendChild(thEl);
+
+
+
+  catTable.appendChild(trEl);
+}
+
+tablebuilder();
+
+
+// objectKen {
+  // function bob
+// }
