@@ -1,6 +1,7 @@
 'strict';
+var universal =[];
 
-var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', 'noon', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total Per Day'];
+var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', 'noon', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
 
 function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
   this.storeName = storeName;
@@ -45,13 +46,14 @@ function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
     totalEl.textContent = this.totalCookiesPerDay;
     alkiUL.appendChild(totalEl);
   };
+  universal.push(this);
 }
 // make objects
-var alki = new Store('Alki', 2, 16, 4.6);
-var seaTac = new Store('SeaTac Airport', 3, 24, 1.2);
-var capHill = new Store('Capitol Hill', 20, 38, 2.3);
-var seaCenter = new Store('Seattle Center', 11, 38, 3.7);
-var pike = new Store('1st and Pike', 23, 65, 6.3);
+new Store('Alki', 2, 16, 4.6);
+new Store('SeaTac Airport', 3, 24, 1.2);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('1st and Pike', 23, 65, 6.3);
 //make table header
 
 
@@ -69,15 +71,32 @@ function tablebuilder() {
     storeTable.appendChild(thEl);
   }
 }
-
-
-
-
 tablebuilder();
-seaTac.render();
-alki.render();
-capHill.render();
-seaCenter.render();
-pike.render();
-var wonder = pike['cookiesSoldPerHour'][4];
-console.log(pike.cookiesSoldPerHour[2]);
+for (var i = 0; i < universal.length; i++) {
+  universal[i].render();
+}
+var totalTotal = 0;
+var bigTotal = 0;
+var blankSpace = document.getElementById('storeTable');
+var trEl= document.createElement('tr');
+blankSpace.appendChild(trEl);
+for (var i = 0; i < hoursOpen.length; i++) {
+
+  for (var j = 0; j < universal.length; j++) {
+    var test = universal[j]['cookiesSoldPerHour'][0];
+    // console.log(test);
+    bigTotal += test;
+    console.log(bigTotal);
+    totalTotal += test;
+    console.log(totalTotal);
+  }
+  // console.log(bigTotal);
+  var totalEl = document.getElementById('storeTable');
+  var nameEl = document.createElement('th');
+  nameEl.textContent = bigTotal;
+  totalEl.appendChild(trEl);
+  totalEl.appendChild(nameEl);
+  bigTotal = 0;
+}
+// var wonder = pike['cookiesSoldPerHour'][4];
+// console.log(pike.cookiesSoldPerHour[2]);
