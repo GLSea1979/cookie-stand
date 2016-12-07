@@ -106,7 +106,9 @@ function buildsTableTotalsRow(){
 function handleStoreSubmit(event) {
 
   event.preventDefault();
+  // storeTable.innerhtml = '';
   addstore.innerhtml = '';
+  // totalEl.innerhtml = '';
   if (!event.target.name.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value) {
     return alert('All fields must have data inserted.');
   }
@@ -122,6 +124,7 @@ var eventAvg = event.target.avg.value;
 
 new Store(eventStoreName, eventMin, eventMax, eventMax);
 
+buildsTableTotalsRow();
 // clear input values+++++++++++++++++++++++++++++++++
 event.target.name.value = null;
 event.target.min.value = null;
@@ -129,7 +132,8 @@ event.target.max.value = null;
 event.target.avg.value = null;
 // clear page ++++++++++++++++++++
 
-
+// #storeTable > th:nth-child(103)
+// #storeTable > th:nth-child(137)
 //build everything +++++++++++++++++++++++++++++++
 
 // putObjectsIntoArray();
@@ -140,7 +144,7 @@ event.target.avg.value = null;
 // finalTotal = [];
 // hoursOpen =[];
 }
-
+buildsTableTotalsRow();
 
 // Event listener for comment submission form
 addstore.addEventListener('submit', handleStoreSubmit);
@@ -148,7 +152,7 @@ addstore.addEventListener('submit', handleStoreSubmit);
 
 // putObjectsIntoArray();
 
-  buildsTableTotalsRow();
+
 
 
 
