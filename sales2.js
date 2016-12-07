@@ -3,6 +3,7 @@ var universal =[];
 var testingTotal = [];
 var finalTotal = [];
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', 'noon', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+tablebuilder();
 // make objects
 new Store('Alki', 2, 16, 4.6);
 new Store('SeaTac Airport', 3, 24, 1.2);
@@ -51,6 +52,9 @@ function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
   };
   testingTotal.push(this.cookiesSoldPerHour);
   universal.push(this);
+  this.render();
+
+
 }
 //make table header +++++++++++++++++++++++++++++
 function tablebuilder() {
@@ -65,12 +69,12 @@ function tablebuilder() {
     storeTable.appendChild(thEl);
   }
 }
-//  Stores in an Array  are rendered+++++++++++++++++++++++++++++++++
-function putObjectsIntoArray() {
-  for (var i = 0; i < universal.length; i++) {
-    universal[i].render();
-  }
-}
+// //  Stores in an Array  are rendered+++++++++++++++++++++++++++++++++
+// function putObjectsIntoArray() {
+//   for (var i = 0; i < universal.length; i++) {
+//     universal[i].render();
+//   }
+// }
 // Build the Footer with totals+++++++++++++++++++++++++++++++++++
 function buildsTableTotalsRow(){
   var totalTotal = 0;
@@ -100,7 +104,9 @@ function buildsTableTotalsRow(){
 
 // event handler
 function handleStoreSubmit(event) {
+
   event.preventDefault();
+  addstore.innerhtml = '';
   if (!event.target.name.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value) {
     return alert('All fields must have data inserted.');
   }
@@ -122,12 +128,12 @@ event.target.min.value = null;
 event.target.max.value = null;
 event.target.avg.value = null;
 // clear page ++++++++++++++++++++
-addstore.innerhtml = '';
+
 
 //build everything +++++++++++++++++++++++++++++++
-tablebuilder();
-putObjectsIntoArray();
-buildsTableTotalsRow();
+
+// putObjectsIntoArray();
+
 
 // universal = [];
 // testingTotal = [];
@@ -139,10 +145,10 @@ buildsTableTotalsRow();
 // Event listener for comment submission form
 addstore.addEventListener('submit', handleStoreSubmit);
 
-tablebuilder();
-putObjectsIntoArray();
-buildsTableTotalsRow();
 
+// putObjectsIntoArray();
+
+  buildsTableTotalsRow();
 
 
 
