@@ -71,7 +71,7 @@ function putObjectsIntoArray() {
     universal[i].render();
   }
 }
-// Build the er Footer with totals+++++++++++++++++++++++++++++++++++
+// Build the Footer with totals+++++++++++++++++++++++++++++++++++
 function buildsTableTotalsRow(){
   var totalTotal = 0;
   var totalEl = document.getElementById('storeTable');
@@ -97,6 +97,54 @@ function buildsTableTotalsRow(){
   tdEl1.textContent = lastTotal;
   totalEl.appendChild(tdEl1);
 }
+
+// event handler
+function handleStoreSubmit(event) {
+  event.preventDefault();
+  if (!event.target.name.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value) {
+    return alert('All fields must have data inserted.');
+  }
+  var checkIfNumber = event.target.min.value + event.target.max.value + event.target.avg.value;
+  if (isNaN(checkIfNumber)) {
+    return alert('Minimum Customers, Maximum Customers and Average Customers must be numbers.');
+  }
+// grab input form data +++++++++++++++++++++++
+var eventStoreName = event.target.name.value;
+var eventMin = event.target.min.value;
+var eventMax = event.target.max.value;
+var eventAvg = event.target.avg.value;
+
+new Store(eventStoreName, eventMin, eventMax, eventMax);
+
+// clear input values+++++++++++++++++++++++++++++++++
+event.target.name.value = null;
+event.target.min.value = null;
+event.target.max.value = null;
+event.target.avg.value = null;
+// clear page ++++++++++++++++++++
+addstore.innerhtml = '';
+
+//build everything +++++++++++++++++++++++++++++++
 tablebuilder();
 putObjectsIntoArray();
 buildsTableTotalsRow();
+
+// universal = [];
+// testingTotal = [];
+// finalTotal = [];
+// hoursOpen =[];
+}
+
+
+// Event listener for comment submission form
+addstore.addEventListener('submit', handleStoreSubmit);
+
+tablebuilder();
+putObjectsIntoArray();
+buildsTableTotalsRow();
+
+
+
+
+
+// prevent linter from hiding page bottom
