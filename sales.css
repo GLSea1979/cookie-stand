@@ -1,0 +1,22 @@
+* {
+  border: 1px  solid red;
+  background-color: #d3d3d3;
+}
+h1 {
+  /*background-color: grey;*/
+  text-align: center;
+}
+#tableBox {
+  width: 90%;
+  margin: auto;
+  /*background-color: yellow;*/
+}
+table th {
+
+  margin: auto;
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+td {
+  border: 1px solid grey;
+}
