@@ -1,9 +1,13 @@
 'strict';
+var totalEl = document.getElementById('storeTable');
+var stupid = 0;
 var universal =[];
 var testingTotal = [];
 var finalTotal = [];
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', 'noon', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
 tablebuilder();
+
+
 // make objects
 new Store('Alki', 2, 16, 4.6);
 new Store('SeaTac Airport', 3, 24, 1.2);
@@ -52,9 +56,15 @@ function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
   };
   testingTotal.push(this.cookiesSoldPerHour);
   universal.push(this);
-  this.render();
+  // this.render();
 
 
+}
+
+console.log(stupid);
+if (stupid === 0) {
+  // buildsTableTotalsRow();
+  stupid += 1;
 }
 //make table header +++++++++++++++++++++++++++++
 function tablebuilder() {
@@ -71,14 +81,15 @@ function tablebuilder() {
 }
 // //  Stores in an Array  are rendered+++++++++++++++++++++++++++++++++
 // function putObjectsIntoArray() {
-//   for (var i = 0; i < universal.length; i++) {
-//     universal[i].render();
-//   }
+  for (var i = 0; i < universal.length; i++) {
+    universal[i].render();
+  }
 // }
+buildsTableTotalsRow();
 // Build the Footer with totals+++++++++++++++++++++++++++++++++++
 function buildsTableTotalsRow(){
   var totalTotal = 0;
-  var totalEl = document.getElementById('storeTable');
+  // var totalEl = document.getElementById('storeTable');
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('th');
   tdEl.textContent = 'Total';
@@ -98,7 +109,7 @@ function buildsTableTotalsRow(){
     lastTotal += finalTotal[i];
   }
   var tdEl1 = document.createElement('th')
-  tdEl1.textContent = lastTotal;
+  tdEl1.textContent = lastTotal + 'stupid=' + stupid;
   totalEl.appendChild(tdEl1);
 }
 
@@ -106,12 +117,15 @@ function buildsTableTotalsRow(){
 function handleStoreSubmit(event) {
 
   event.preventDefault();
+  var stupid = 100;
+  // tableBox.innerhtml = '';
+  //
   // storeTable.innerhtml = '';
-  addstore.innerhtml = '';
-  // totalEl.innerhtml = '';
+  totalEl.innerhtml = '';
   if (!event.target.name.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value) {
     return alert('All fields must have data inserted.');
   }
+
   var checkIfNumber = event.target.min.value + event.target.max.value + event.target.avg.value;
   if (isNaN(checkIfNumber)) {
     return alert('Minimum Customers, Maximum Customers and Average Customers must be numbers.');
@@ -137,14 +151,14 @@ event.target.avg.value = null;
 //build everything +++++++++++++++++++++++++++++++
 
 // putObjectsIntoArray();
-
-
+  storeTable.innerhtml = '';
+  desperate.innerhtml = '';
 // universal = [];
 // testingTotal = [];
 // finalTotal = [];
 // hoursOpen =[];
 }
-buildsTableTotalsRow();
+
 
 // Event listener for comment submission form
 addstore.addEventListener('submit', handleStoreSubmit);
