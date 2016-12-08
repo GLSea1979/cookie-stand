@@ -1,9 +1,20 @@
 'strict';
+var totalEl = document.getElementById('storeTable');
+var stupid = 0;
 var universal =[];
 var testingTotal = [];
 var finalTotal = [];
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', 'noon', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+tablebuilder();
 
+
+// make objects
+new Store('Alki', 2, 16, 4.6);
+new Store('SeaTac Airport', 3, 24, 1.2);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('1st and Pike', 23, 65, 6.3);
+// Store constuctor +++++++++++++++++++++++++++++++++++++
 function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
   this.storeName = storeName;
   this.minCustHour = minCustHour;
@@ -45,55 +56,119 @@ function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
   };
   testingTotal.push(this.cookiesSoldPerHour);
   universal.push(this);
+  // this.render();
+
+
 }
-// make objects
-new Store('Alki', 2, 16, 4.6);
-new Store('SeaTac Airport', 3, 24, 1.2);
-new Store('Capitol Hill', 20, 38, 2.3);
-new Store('Seattle Center', 11, 38, 3.7);
-new Store('1st and Pike', 23, 65, 6.3);
-//make table header
 
-
-
-
+console.log(stupid);
+if (stupid === 0) {
+  // buildsTableTotalsRow();
+  stupid += 1;
+}
+//make table header +++++++++++++++++++++++++++++
 function tablebuilder() {
   var storeTable = document.getElementById('storeTable');
   var trEl= document.createElement('tr');
   var blankEL = document.createElement('th');
   storeTable.appendChild(blankEL);
   for (var i = 0; i < hoursOpen.length; i++) {
-    var thEl= document.createElement('th');
+     var thEl= document.createElement('th');
     thEl.textContent = hoursOpen[i];
     trEl.appendChild(thEl);
     storeTable.appendChild(thEl);
   }
 }
-tablebuilder();
-for (var i = 0; i < universal.length; i++) {
-  universal[i].render();
-}
-var totalTotal = 0;
-var totalEl = document.getElementById('storeTable');
-var trEl = document.createElement('tr');
-var tdEl = document.createElement('td');
-tdEl.textContent = 'Total';
-totalEl.appendChild(trEl);
-totalEl.appendChild(tdEl);
-
-for (var i = 0; i < (hoursOpen.length - 1); i++) {
-  for (var j = 0; j < testingTotal.length; j++) {
-    totalTotal += testingTotal[j][i];
+// //  Stores in an Array  are rendered+++++++++++++++++++++++++++++++++
+// function putObjectsIntoArray() {
+  for (var i = 0; i < universal.length; i++) {
+    universal[i].render();
   }
-  var tdEl = document.createElement('td');
-  tdEl.textContent = totalTotal;
+// }
+buildsTableTotalsRow();
+// Build the Footer with totals+++++++++++++++++++++++++++++++++++
+function buildsTableTotalsRow(){
+  var totalTotal = 0;
+  // var totalEl = document.getElementById('storeTable');
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('th');
+  tdEl.textContent = 'Total';
+  totalEl.appendChild(trEl);
   totalEl.appendChild(tdEl);
-  totalTotal = 0;
+  for (var i = 0; i < (hoursOpen.length - 1); i++) {
+    for (var j = 0; j < testingTotal.length; j++) {
+      totalTotal += testingTotal[j][i];
+    }
+    var tdEl = document.createElement('th');
+    tdEl.textContent = totalTotal;
+    totalEl.appendChild(tdEl);
+    totalTotal = 0;
+  }
+  var lastTotal = 0;
+  for (var i = 0; i < finalTotal.length; i++){
+    lastTotal += finalTotal[i];
+  }
+  var tdEl1 = document.createElement('th')
+  tdEl1.textContent = lastTotal + 'stupid=' + stupid;
+  totalEl.appendChild(tdEl1);
 }
-var lastTotal = 0;
-for (var i = 0; i < finalTotal.length; i++){
-  lastTotal += finalTotal[i];
+
+// event handler
+function handleStoreSubmit(event) {
+
+  event.preventDefault();
+  var stupid = 100;
+  // tableBox.innerhtml = '';
+  //
+  // storeTable.innerhtml = '';
+  totalEl.innerhtml = '';
+  if (!event.target.name.value || !event.target.min.value || !event.target.max.value || !event.target.avg.value) {
+    return alert('All fields must have data inserted.');
+  }
+
+  var checkIfNumber = event.target.min.value + event.target.max.value + event.target.avg.value;
+  if (isNaN(checkIfNumber)) {
+    return alert('Minimum Customers, Maximum Customers and Average Customers must be numbers.');
+  }
+// grab input form data +++++++++++++++++++++++
+var eventStoreName = event.target.name.value;
+var eventMin = event.target.min.value;
+var eventMax = event.target.max.value;
+var eventAvg = event.target.avg.value;
+
+new Store(eventStoreName, eventMin, eventMax, eventMax);
+
+buildsTableTotalsRow();
+// clear input values+++++++++++++++++++++++++++++++++
+event.target.name.value = null;
+event.target.min.value = null;
+event.target.max.value = null;
+event.target.avg.value = null;
+// clear page ++++++++++++++++++++
+
+// #storeTable > th:nth-child(103)
+// #storeTable > th:nth-child(137)
+//build everything +++++++++++++++++++++++++++++++
+
+// putObjectsIntoArray();
+  storeTable.innerhtml = '';
+  desperate.innerhtml = '';
+// universal = [];
+// testingTotal = [];
+// finalTotal = [];
+// hoursOpen =[];
 }
-var tdEl1 = document.createElement('td')
-tdEl1.textContent = lastTotal;
-totalEl.appendChild(tdEl1);
+
+
+// Event listener for comment submission form
+addstore.addEventListener('submit', handleStoreSubmit);
+
+
+// putObjectsIntoArray();
+
+
+
+
+
+
+// prevent linter from hiding page bottom
