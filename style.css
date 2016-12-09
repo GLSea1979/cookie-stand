@@ -1,12 +1,50 @@
 * {
-  border: 1px solid #dab877;
-  background-color: #dab877;
-  margin: 0;
+  /*border: 1px solid #dab877;*/
+
 }
-#logo {
-  width: 820px;
+header {
+  border: 2px dashed yellow;
+  height: 300px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+nav {
+  /*border: 2px solid red;           *********test   *****/
+}
+#salmon {max-width: 25%; float: left;}
+#chinook {max-width: 25%; float: right; }
+.dropdown {
+    /*border: 1px dashed green;     ***  test **********    */
+    position: relative;
+    top: 10px;
+    left: 25px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: -40px;
+    background-color: #f9f9f9;
+    width: 400px;
+    border: 1px solid #fc814a;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 2px 5px;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+#content {
+  min-height: 800px;
+  max-width: 920px;
   margin: auto;
-  /*background-color: #ba7955;*/
 }
 #sideA{
   background-color: #464436;
@@ -38,9 +76,23 @@
   float: left;
   width: 10%;
 }
-h1 {
-  text-align: center;
+footer {
+   color: white;
+   clear: both;
+   left:0px;
+   bottom:0px;
+   height:200px;
+   max-width:1000px;
+   background: black;
+   margin: 0 auto;
+   border-radius: 10px 10px 0 0;
 }
-h2 {
-  margin: 5px 0;
+#fampic {
+  float: left;
+  width: 200px;
+  margin: 20px 20px;
+}
+footer p {
+  display: inline-block;
+  margin: 50px;
 }

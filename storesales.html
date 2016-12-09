@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="sales.css">
+    <title>Pats Salmon Cookies -- Sales</title>
+  </head>
+  <body>
+    <header>
+        <h1>Pat's Salmon Cookie Stand</h1>
+        <h4>The Original Salmon Cookies</h4>
+    </header>
+
+    <h2>Cookies Needed By Location Each Day</h2>
+    <div id="tableBox">
+      <form id="addstore" action="index.html" method="post">
+        <fieldset>
+          <legend>Add/Update Cookie Location:</legend>
+
+          <label for="name">Store Name</label>
+          <input type="text" name="name" placeholder="Store Name">
+
+          <label for="min">Min</label>
+          <input type="text" name="min" placeholder="min" size="5">
+
+          <label for="max">Max</label>
+          <input type="text" name="max" placeholder="max" size="5">
+
+          <label for="avg">Avgerage</label>
+          <input type="text" name="avg" placeholder="average" size="8">
+
+          <button type="submit">Create a new store</button>
+        </fieldset>
+
+      </form>
+
+
+      <table id="storeTable"></table>
+    </div>
+    <a href="index.html">return to the main page</a>
+    <script type="text/javascript" src="sales.js"></script>
+  </body>
+</html>
