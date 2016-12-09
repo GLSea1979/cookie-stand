@@ -2,8 +2,14 @@
   /*border: 1px solid #dab877;*/
 
 }
+body {
+   color: #735855;
+   font-family: 'Dosis', sans-serif;
+}
 header {
-  border: 2px dashed yellow;
+
+  /*background-color: ;*/
+  border-bottom: 3px solid #94cad0;
   height: 300px;
   max-width: 1000px;
   margin: 0 auto;
@@ -15,8 +21,15 @@ h1 {
 nav {
   /*border: 2px solid red;           *********test   *****/
 }
-#salmon {max-width: 25%; float: left;}
-#chinook {max-width: 25%; float: right; }
+#salmon {
+  max-width: 25%;
+  margin: 10px 0 0 0;
+  float: left;}
+#chinook {
+  max-width: 25%;
+  margin: 0 0 10px 0;
+   float: right;
+  }
 .dropdown {
     /*border: 1px dashed green;     ***  test **********    */
     position: relative;
@@ -25,7 +38,7 @@ nav {
     display: inline-block;
     margin: 5px;
 }
-
+/*   b99862  ffecce c61666                     */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -33,13 +46,25 @@ nav {
     left: -40px;
     background-color: #f9f9f9;
     width: 400px;
-    border: 1px solid #fc814a;
+    border: 1px solid #94cad0;
+    border-radius: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 2px 5px;
 }
 
 .dropdown:hover .dropdown-content {display: block;}
-
+a:link {
+    color: #94cad0;
+}
+a:visited {
+    color: #94cad0;
+}
+a:hover {
+    color: #fc814a;
+}
+a:active {
+    color: #bfbfbf;
+}
 
 #content {
   min-height: 800px;
@@ -49,43 +74,52 @@ nav {
 #sideA{
   background-color: #464436;
   float: left;
-  width: 10%;
-}
-#column1{
-  float: left;
-  width: 16%;
-}
-#column2{
-  float: left;
-  width: 16%;
-}
-#column3{
-  float: left;
-  width: 16%;
-}
-#column4{
-  float: left;
-  width: 16%;
-}
-#column5{
-  float: left;
-  width: 16%;
+  width: 125px;
 }
 #sideb{
   background-color: #464436;
   float: left;
-  width: 10%;
+  width: 125px;
+}
+#column1, #column2, #column3, #column4 {
+  margin-top: 20px;
+  height: 300px;
+  overflow: hidden;
+  border-bottom: 3px solid #94cad0;
+}
+#cookie {
+  float: left;
+}
+h3 {
+  font-size: 40px;
+  text-align: center;
+}
+article {
+  font-size:20px;
+  text-align: center;
+  font-size: 20px;
+}
+.swag {
+  display: inline-block;
+  padding: 20px;
+  margin: 0 24px;
+}
+#cookie {
+  margin: 5px;
+}
+h5 {
+  text-align: center;
 }
 footer {
-   color: white;
+   color: #94cad0;
    clear: both;
    left:0px;
    bottom:0px;
-   height:200px;
+   height: 170px;
    max-width:1000px;
-   background: black;
-   margin: 0 auto;
-   border-radius: 10px 10px 0 0;
+   background: #735855;
+   margin: 0 auto 10px;
+   border-radius: 10px 10px;
 }
 #fampic {
   float: left;
