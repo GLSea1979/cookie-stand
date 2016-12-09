@@ -1,5 +1,5 @@
 * {
-  /*border: 1px solid #dab877;*/
+  border: 1px solid #dab877;
 
 }
 header {
@@ -34,12 +34,24 @@ nav {
     background-color: #f9f9f9;
     width: 400px;
     border: 1px solid #fc814a;
+    border-radius: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 2px 5px;
 }
 
 .dropdown:hover .dropdown-content {display: block;}
-
+a:link {
+    color: white;
+}
+a:visited {
+    color: #5a5b66;
+}
+a:hover {
+    color: #fc814a;
+}
+a:active {
+    color: #bfbfbf;
+}
 
 #content {
   min-height: 800px;
@@ -49,32 +61,36 @@ nav {
 #sideA{
   background-color: #464436;
   float: left;
-  width: 10%;
-}
-#column1{
-  float: left;
-  width: 16%;
-}
-#column2{
-  float: left;
-  width: 16%;
-}
-#column3{
-  float: left;
-  width: 16%;
-}
-#column4{
-  float: left;
-  width: 16%;
-}
-#column5{
-  float: left;
-  width: 16%;
+  width: 125px;
 }
 #sideb{
   background-color: #464436;
   float: left;
-  width: 10%;
+  width: 125px;
+}
+#column1{
+  height: 200px;
+  overflow: hidden;
+}
+#column2{
+  height: 200px;
+  overflow: hidden;
+}
+#column3{
+  height: 200px;
+  overflow: hidden;
+}
+#column4{
+  height: 200px;
+  overflow: hidden;
+}
+#column5{
+  height: 200px;
+  overflow: hidden;
+}
+
+#cookie {
+  float: left;
 }
 footer {
    color: white;
