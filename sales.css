@@ -1,10 +1,26 @@
 * {
   /*border: 1px  solid red;*/
-  background-color: #d3d3d3;
+  background-color: #fff;
+}
+body {
+   color: #735855;
+   font-family: 'Dosis', sans-serif;
 }
 header {
   /*background-color: grey;*/
   text-align: center;
+  margin: 20px 0 100px;
+}
+h2{}
+
+
+#addstore {
+  width: 50%;
+  margin: 100px auto;
+}
+table {
+  width: 90%;
+  margin: 0 auto;
 }
 #tableBox {
   width: 90%;
@@ -14,9 +30,11 @@ header {
 table th {
 
   margin: auto;
-  border: 2px solid black;
-  border-collapse: collapse;
+  border-bottom: 1px solid #94cad0;
+  /*border-collapse: collapse;*/
 }
 td {
-  border: 1px solid grey;
+  margin: 5px;
+  padding: 5px;
+  border-bottom: 1px solid #94cad0;
 }
