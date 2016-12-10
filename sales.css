@@ -11,6 +11,9 @@ header {
   margin: auto;
   /*background-color: yellow;*/
 }
+table {
+  width: 100%
+}
 table th {
 
   margin: auto;
