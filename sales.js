@@ -35,7 +35,6 @@ function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
     }
   };
   this.render = function() {
-    this.cookieRandomizer();
     var alkiUL = document.getElementById('storeTable');
     var trEl= document.createElement('tr');
     var nameEl = document.createElement('th');
@@ -53,6 +52,7 @@ function Store(storeName, minCustHour, maxCustHour, avgCookiesCust) {
     finalTotal.push(this.totalCookiesPerDay);
     alkiUL.appendChild(totalEl);
   };
+  this.cookieRandomizer();
   testingTotal.push(this.cookiesSoldPerHour);
   universal.push(this);
 }
@@ -123,7 +123,7 @@ var eventMax = event.target.max.value;
 var eventAvg = event.target.avg.value;
 // clear html  have inner should only need one
   // addstore.innerHTML = '';
-  // totalEl.innerHTML = '';
+  // universal = [];
   storeTable.innerHTML = '';
 new Store(eventStoreName, eventMin, eventMax, eventMax);
 
